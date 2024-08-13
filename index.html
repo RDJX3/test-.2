@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>RDJ Sheets</title>
     <link rel="stylesheet" href="styles.css"> <!-- Ensure this path is correct -->
+    <link rel="stylesheet" href="Passenger - Let Her Go.css"> <!-- New CSS file -->
     <link rel="icon" type="image/png" href="rdj-sheets-logo.png"> <!-- Ensure this path is correct -->
 </head>
 <body>
@@ -17,7 +18,10 @@
             <input type="text" id="search-bar" placeholder="Search...">
             <button type="submit" id="search-button">Search</button>
         </div>
-        <div id="button-container"></div>
+        <div id="button-container">
+            <!-- Existing buttons will be dynamically added here -->
+            <button id="passenger-button" class="text-button">Passenger - Let Her Go</button> <!-- Updated button -->
+        </div>
     </main>
 
     <div id="textModal" class="modal">
@@ -39,7 +43,7 @@
                 .then(files => {
                     files.forEach(file => {
                         const button = document.createElement('button');
-                        button.className = 'text-button';
+                        button.className = 'text-button'; // Consistent class for all buttons
                         button.dataset.text = file;
                         button.textContent = file.replace('.txt', '');
                         container.appendChild(button);
