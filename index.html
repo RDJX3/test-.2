@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RDJ SHEETS</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <link rel="icon" type="image/png" href="static/rdj sheets logo.png">
+</head>
+<body>
+    <main>
+        <h1>RDJSheets</h1>
+        <div class="links-container">
+            <a href="https://discord.gg/CuV6eDrSnM" class="theme-link">My Discord</a>
+            <a href="https://discord.gg/MVWJQtujsp" class="support-link">Support</a>
+        </div>
+        <div class="search-container">
+            <input type="text" id="search-bar" placeholder="Search...">
+        </div>
+        <div id="button-container"></div>
+    </main>
+
+    <div id="textModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-text"></p>
+            <button class="copy-button" id="copy-button">Copy</button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.getElementById('button-container');
+            const searchBar = document.getElementById('search-bar');
+            let allButtons = [];
+
+            fetch('/files')
+                .then(response => response.json())
+                .then(files => {
+                    files.forEach(file => {
+                        const button = document.createElement('button');
+                        button.className = 'text-button';
+                        button.dataset.text = file;
+                        button.textContent = file.replace('.txt', '');
+                        container.appendChild(button);
+                        allButtons.push(button);
+                    });
+                });
+
+            searchBar.addEventListener('input', function() {
+                const query = searchBar.value.toLowerCase();
+                allButtons.forEach(button => {
+                    const text = button.textContent.toLowerCase();
+                    button.style.display = text.includes(query) ? 'inline-block' : 'none';
+                });
+            });
+
+            const modal = document.getElementById('textModal');
+            const closeBtn = document.querySelector('.close');
+            const copyBtn = document.getElementById('copy-button');
+            const modalText = document.getElementById('modal-text');
+
+            container.addEventListener('click', function(e) {
+                if (e.target.classList.contains('text-button')) {
+                    const filename = e.target.dataset.text;
+                    fetch(`/sheets/${filename}`)
+                        .then(response => response.text())
+                        .then(text => {
+                            modalText.textContent = text;
+                            modal.style.display = 'block';
+                        });
+                }
+            });
+
+            closeBtn.addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+
+            copyBtn.addEventListener('click', function() {
+                navigator.clipboard.writeText(modalText.textContent).then(() => {
+                    alert('Text copied to clipboard');
+                }).catch(err => {
+                    console.error('Failed to copy text: ', err);
+                });
+            });
+
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    modal.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
