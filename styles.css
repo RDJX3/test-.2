@@ -12,8 +12,8 @@ body, html {
 }
 
 body {
-    background-color: #f0f0f0; /* Light background color for light theme */
-    color: #333333; /* Darker text color for better readability */
+    background-color: #f5f5f5; /* Light background color */
+    color: #333333; /* Dark text color for readability */
     height: 100vh;
     overflow-x: hidden;
 }
@@ -28,8 +28,8 @@ header {
     align-items: center;
     padding: 0 20px;
     background-color: #ffffff; /* White background for header */
-    border-bottom: 1px solid #e0e0e0; /* Light border for separation */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for better visibility */
+    border-bottom: 1px solid #ddd; /* Light border for header */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow for separation */
     z-index: 1000;
 }
 
@@ -45,8 +45,8 @@ header {
     width: 60px;
     height: 60px;
     margin: 10px;
-    border: 1px solid #d0d0d0; /* Light border for button */
-    background-color: #e0e0e0; /* Light gray background for button */
+    border: 1px solid #ccc; /* Light border */
+    background-color: #e0e0e0; /* Light gray background */
     color: #333333; /* Dark text color */
     cursor: pointer;
     border-radius: 12px;
@@ -56,7 +56,6 @@ header {
     align-items: center;
     text-decoration: none;
     font-size: 14px;
-    overflow: hidden;
 }
 
 .top-button:hover {
@@ -89,19 +88,19 @@ main {
 
 #search-bar {
     padding: 15px;
-    border: 1px solid #d0d0d0; /* Light border for search bar */
+    border: 1px solid #ccc; /* Light border */
     border-radius: 4px 0 0 4px;
     outline: none;
     width: 250px;
-    background-color: #ffffff; /* White background for search bar */
+    background-color: #ffffff; /* White background */
     color: #333333; /* Dark text color */
 }
 
 #search-button {
     padding: 15px;
-    border: 1px solid #d0d0d0; /* Light border for button */
+    border: 1px solid #ccc; /* Light border */
     border-radius: 0 4px 4px 0;
-    background-color: #ffffff; /* White background for button */
+    background-color: #ffffff; /* White background */
     cursor: pointer;
     color: #333333; /* Dark text color */
     font-size: 14px;
@@ -112,9 +111,9 @@ main {
 }
 
 .text-button {
-    background-color: #e0e0e0; /* Light gray background for text button */
+    background-color: #e0e0e0; /* Light gray background */
     color: #333333; /* Dark text color */
-    border: 1px solid #d0d0d0; /* Light border for text button */
+    border: 1px solid #ccc; /* Light border */
     padding: 10px 20px;
     margin: 5px;
     cursor: pointer;
@@ -136,20 +135,20 @@ main {
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0.5); /* Slightly darker overlay for visibility */
 }
 
 .modal-content {
     background-color: #ffffff; /* White background for modal */
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #d0d0d0; /* Light border for modal */
+    border: 1px solid #ddd; /* Light border */
     width: 80%;
     color: #333333; /* Dark text color */
 }
 
 .close {
-    color: #333333; /* Dark text color for close button */
+    color: #333333; /* Dark color for close button */
     float: right;
     font-size: 28px;
     font-weight: bold;
@@ -163,7 +162,7 @@ main {
 }
 
 .copy-button {
-    background-color: #e0e0e0; /* Light gray background for copy button */
+    background-color: #e0e0e0; /* Light gray background */
     color: #333333; /* Dark text color */
     border: none;
     padding: 10px 20px;
